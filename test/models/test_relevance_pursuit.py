@@ -91,7 +91,7 @@ class TestRobustGP(BotorchTestCase):
         sigma = 1e-2
         Y = F + torch.randn_like(F) * sigma
         outlier_indices = list(range(n - num_outliers, n))
-        Y[outlier_indices] = -Y[outlier_indices]
+        Y[outlier_indices] += 2.0
         return X, Y, outlier_indices
 
     def _get_robust_model(
