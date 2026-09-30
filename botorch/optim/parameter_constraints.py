@@ -710,8 +710,8 @@ def make_scipy_nonlinear_inequality_constraints(
         f_np_wrapper: A wrapper function that given a constraint evaluates the value
              and gradient (using autograd) of a numpy input and returns both the
              objective and the gradient.
-        x0: The starting point for SLSQP. We return this starting point in (rare)
-            cases where SLSQP fails and thus require it to be feasible.
+        x0: The starting point for SLSQP. It may be infeasible when
+            ``validate_feasibility=False``.
         shapeX: Shape of the three-dimensional batch X, that should be optimized.
         validate_feasibility: If True, require that ``x0`` satisfies all nonlinear
             inequality constraints. Set to False when ``x0`` may be infeasible, e.g.
